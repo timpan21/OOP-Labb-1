@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         // Skapa instanser av Volvo240 och Saab95
-        Volvo240 volvo = new Volvo240();
-        Saab95 saab = new Saab95();
+        Volvo240 volvo = new Volvo240(java.awt.Color.BLACK);
+        Saab95 saab = new Saab95(java.awt.Color.RED);
 
         // Testa gas-funktionen
         System.out.println("Testar gas-funktionen:");

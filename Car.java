@@ -65,18 +65,30 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    public abstract void incrementSpeed(double amount);
-
-    public abstract void decrementSpeed(double amount);
-
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if (amount >= 0 && amount <= 1) {
+            incrementSpeed(amount);
+        }
     }
 
     public void brake(double amount) {
-        decrementSpeed(amount);
+        if (amount >= 0 && amount <= 1) {
+            decrementSpeed(amount);
+        }
     }
 
+    protected abstract double speedFactor();
+
+    // Modify the incrementSpeed and decrementSpeed methods to use speedFactor
+    protected void incrementSpeed(double amount) {
+        double newSpeed = getCurrentSpeed() + speedFactor() * amount;
+        currentSpeed = Math.min(newSpeed, enginePower);
+    }
+
+    protected void decrementSpeed(double amount) {
+        double newSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = Math.max(newSpeed, 0);
+    }
     @Override
     public void move() {
         position.translate((int) (Math.cos(Math.toRadians(direction)) * currentSpeed),

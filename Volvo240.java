@@ -16,7 +16,7 @@ public class Volvo240 extends Car {
         setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
     }
     
-    private double speedFactor() {
+    protected double speedFactor() {
         return getEnginePower() * 0.01 * TRIM_FACTOR;
     }
 }

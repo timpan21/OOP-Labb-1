@@ -91,15 +91,19 @@ public abstract class Car implements Movable {
     }
     @Override
     public void move() {
-        position.translate((int) (Math.cos(Math.toRadians(direction)) * currentSpeed),
-                           (int) (Math.sin(Math.toRadians(direction)) * currentSpeed));
+        int xMovement = (int) Math.round(Math.cos(Math.toRadians(direction)) * currentSpeed);
+        int yMovement = (int) Math.round(Math.sin(Math.toRadians(direction)) * currentSpeed);
+        position.translate(xMovement, yMovement);
     }
 
     @Override
     public void turnLeft() {
         direction = (direction - 90) % 360;
+        if (direction < 0) {
+            direction += 360;
+        }
     }
-
+    
     @Override
     public void turnRight() {
         direction = (direction + 90) % 360;

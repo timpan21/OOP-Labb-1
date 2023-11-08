@@ -11,19 +11,19 @@ public class Main {
         System.out.println("Volvo hastighet: " + volvo.getCurrentSpeed());
         System.out.println("Saab hastighet: " + saab.getCurrentSpeed());
 
-        // Testa brake-funktionen
-        System.out.println("\nTestar brake-funktionen:");
-        volvo.brake(0.3);
-        saab.brake(0.5);
-        System.out.println("Volvo hastighet efter bromsning: " + volvo.getCurrentSpeed());
-        System.out.println("Saab hastighet efter bromsning: " + saab.getCurrentSpeed());
-
         // Testa move-funktionen
         System.out.println("\nTestar move-funktionen:");
         volvo.move();
         saab.move();
         System.out.println("Volvo position: " + volvo.getPosition());
         System.out.println("Saab position: " + saab.getPosition());
+
+        // Testa brake-funktionen
+        System.out.println("\nTestar brake-funktionen:");
+        volvo.brake(0.3);
+        saab.brake(0.5);
+        System.out.println("Volvo hastighet efter bromsning: " + volvo.getCurrentSpeed());
+        System.out.println("Saab hastighet efter bromsning: " + saab.getCurrentSpeed());
 
         // Testa sväng-funktioner
         System.out.println("\nTestar sväng-funktionerna:");
